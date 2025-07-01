@@ -1,4 +1,4 @@
-import connectDB from "../DB/connect";
+import connectDB from "../DB/connect.js";
 
 const isAuthenticated = async (req, res) => {
 
