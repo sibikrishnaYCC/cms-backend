@@ -52,6 +52,8 @@ app.use("/auth", authRoutes)
 
 connectDB()
 
-app.listen(port,'0.0.0.0', () => {
-    console.log(chalk.cyan(`server is running on port ${port} ✅ `))
-})
+// app.listen(port,'0.0.0.0', () => {
+//     console.log(chalk.cyan(`server is running on port ${port} ✅ `))
+// })
+
+export default app
