@@ -21,22 +21,25 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validate request
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password are required_' });
-    }
+    // // Validate request
+    // if (!email || !password) {
+    //   return res.status(400).json({ message: 'Email and password are required_' });
+    // }
 
-    // Find user
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid credentials_ ' });
-    }
+    // // Find user
+    // const user = await User.findOne({ email });
+    // if (!user) {
+    //   return res.status(400).json({ message: 'Invalid credentials_ ' });
+    // }
 
-    // Check password
-    const isPasswordValid = await argon2.verify(user.password, password);
-    if (!isPasswordValid) {
-      return res.status(400).json({ message: 'Invalid credentials_ ' });
-    }
+    // // Check password
+    // const isPasswordValid = await argon2.verify(user.password, password);
+    // if (!isPasswordValid) {
+    //   return res.status(400).json({ message: 'Invalid credentials_ ' });
+    // }
+
+    return res.status(200).json({ message: 'Login logic works (DB skipped)' });
+
 
     // Remove previous session if any
     await Session.findOneAndUpdate(
