@@ -2,6 +2,7 @@ import argon2 from 'argon2';
 import User from '../Models/User.js';
 import Session from '../Models/Session.js';
 import rateLimit from 'express-rate-limit';
+import connectDB from '../DB/connect.js';
 
 // Optional: Limit login attempts for security
 const loginLimiter = rateLimit({
@@ -19,6 +20,9 @@ const loginLimiter = rateLimit({
 // Login controller
 const login = async (req, res) => {
   try {
+
+    await connectDB()
+
     const { email, password } = req.body;
 
     // Validate request

@@ -19,7 +19,7 @@ const connectDB = async () => {
     cached.promise = mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 15000, // Helps in cold-start environments
+      serverSelectionTimeoutMS: 20000, // Helps in cold-start environments
     }).then((mongoose) => {
       console.log(chalk.green('✅ MongoDB connected'));
       return mongoose;

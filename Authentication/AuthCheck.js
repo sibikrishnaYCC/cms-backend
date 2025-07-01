@@ -1,5 +1,9 @@
+import connectDB from "../DB/connect";
 
-const isAuthenticated =  (req, res) => {
+const isAuthenticated = async (req, res) => {
+
+    await connectDB()
+
     if (req.session.user) {
         return res.status(200).json({
             success: true,
