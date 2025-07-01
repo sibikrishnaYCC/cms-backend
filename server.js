@@ -16,6 +16,8 @@ const port = process.env.PORT;
 
 console.log(chalk.blue('🔧 Starting server setup...'));
 
+app.use(express.static('public'));
+
 // Middleware: JSON parser
 app.use(express.json());
 console.log(chalk.green('✅ JSON middleware enabled'));
