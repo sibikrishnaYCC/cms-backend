@@ -28,9 +28,10 @@ console.log(chalk.green('✅ Helmet middleware enabled'));
 
 // Middleware: CORS (allow all origins for testing)
 app.use(cors({
-  origin: '*',
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
+
 console.log(chalk.green('✅ CORS middleware enabled for all origins'));
 
 // Middleware: Session
