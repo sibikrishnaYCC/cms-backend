@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import apiRoutes from './Api/Api.js';
+import apiRoutes from './Routes/Api.js';
 import authRoutes from './Authentication/Auth.js';
 import morgan from 'morgan';
 import chalk from 'chalk';
