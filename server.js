@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT;
 
 console.log(chalk.blue('🔧 Starting server setup...'));
-
+app.set('trust proxy', 1);
 app.use(express.static('public'));
 
 // Middleware: JSON parser
@@ -43,10 +43,12 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
+      sameSite: 'none',          
       maxAge: 1000 * 60 * 60 * 24,
     },
   })
 );
+
 console.log(chalk.green('✅ Session middleware configured'));
 
 // Logger: Custom Morgan format
