@@ -8,7 +8,6 @@ import connectDB from './DB/connect.js';
 import helmet from 'helmet';
 import cors from 'cors';
 import expressSession from 'express-session';
-import MongoStore from 'connect-mongo';
 
 dotenv.config();
 
@@ -36,18 +35,19 @@ app.use(cors({
 console.log(chalk.green('✅ CORS middleware enabled for all origins'));
 
 // Middleware: Session
-app.use(expressSession({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    httpOnly: true,
-    sameSite: 'none',
-    maxAge: 1000 * 60 * 60 * 24,
-  },
-}));
+app.use(
+  expressSession({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === 'production',
+      httpOnly: true,
+      sameSite: 'none',          
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+  })
+);
 
 console.log(chalk.green('✅ Session middleware configured'));
 
