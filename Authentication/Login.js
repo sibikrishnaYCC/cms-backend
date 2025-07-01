@@ -1,3 +1,5 @@
+import User from "../Models/User";
+
 const login = async (req, res) => {
   try {
     await connectDB();
@@ -32,3 +34,5 @@ const login = async (req, res) => {
     return res.status(500).json({ message: 'Server error. Please try again later_' });
   }
 };
+
+export default login
