@@ -1,4 +1,4 @@
-import app from '../server';
+import app from '../server.js';
 import { createServer } from 'http';
 
 export default function handler(req, res) {
